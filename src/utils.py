@@ -29,12 +29,13 @@ def split_list_at(l: list, pat: str) -> list[list]:
     return [l[:idx]] + split_list_at(l[idx + 1 :], pat)
 
 
-def read_puzzle_input(input_path: str) -> list[str]:
-    return [l.strip() for l in open(input_path).readlines()]
+# In the two read functions, not stripping whitespace can sometimes be necessary.
+def read_puzzle_input(input_path: str, strip: bool = True) -> list[str]:
+    return [(l.strip() if strip else l.strip("\n")) for l in open(input_path).readlines()]
 
 
-def read_example_input(input_str: str) -> list[str]:
-    return [l.strip() for l in input_str.split("\n")]
+def read_example_input(input_str: str, strip: bool = True) -> list[str]:
+    return [(l.strip() if strip else l) for l in input_str.split("\n")]
 
 
 def nums(line: str) -> list[int]:
