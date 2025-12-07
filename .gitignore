@@ -2,3 +2,5 @@ inputs
 
 venv
 __pycache__
+
+*.swp
